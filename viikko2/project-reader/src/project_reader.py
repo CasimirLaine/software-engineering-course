@@ -20,3 +20,4 @@ class ProjectReader:
         dev_dependencies = parsed_toml['tool']['poetry']['dev-dependencies']
         # deserialisoi TOML-formaatissa oleva merkkijono ja muodosta Project-olio sen tietojen perusteella
         return Project(name, description, dependencies.keys(), dev_dependencies.keys())
+
