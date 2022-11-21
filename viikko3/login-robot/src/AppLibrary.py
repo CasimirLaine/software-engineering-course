@@ -26,6 +26,13 @@ class AppLibrary:
                 f"Output \"{value}\" is not in {str(outputs)}"
             )
 
+    def verify_text(self, value):
+        outputs = self._io.outputs
+
+        if not value in outputs:
+            raise AssertionError(
+                f"Output \"{value}\" is not in {str(outputs)}"
+            )
     def run_application(self):
         self._app.run()
 
