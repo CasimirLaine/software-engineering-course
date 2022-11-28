@@ -68,3 +68,10 @@ class TestOstoskori(unittest.TestCase):
         self.kori.lisaa_tuote(maito)
         self.kori.lisaa_tuote(leipa)
         assert len(self.kori.ostokset()) == 2
+
+    def test_kaksi_eri_tuotetta_ostoskori(self):
+        maito = Tuote("Maito", 3)
+        self.kori.lisaa_tuote(maito)
+        self.kori.lisaa_tuote(maito)
+        assert len(self.kori.ostokset()) == 1
+        self.assertEqual(self.kori.tavaroita_korissa(), 2)
