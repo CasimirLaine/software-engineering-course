@@ -99,3 +99,11 @@ class TestOstoskori(unittest.TestCase):
         assert len(self.kori.ostokset()) == 0
         assert self.kori.tavaroita_korissa() == 0
         assert self.kori.hinta() == 0
+
+    def test_tyhjenna(self):
+        maito = Tuote("Maito", 3)
+        self.kori.lisaa_tuote(maito)
+        self.kori.tyhjenna()
+        assert len(self.kori.ostokset()) == 0
+        assert self.kori.tavaroita_korissa() == 0
+        assert self.kori.hinta() == 0
