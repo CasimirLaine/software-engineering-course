@@ -91,3 +91,11 @@ class TestOstoskori(unittest.TestCase):
         self.kori.poista_tuote(maito)
         ostos = self.kori.ostokset()[0]
         assert ostos.lukumaara() == 1
+
+    def test_poisto(self):
+        maito = Tuote("Maito", 3)
+        self.kori.lisaa_tuote(maito)
+        self.kori.poista_tuote(maito)
+        assert len(self.kori.ostokset()) == 0
+        assert self.kori.tavaroita_korissa() == 0
+        assert self.kori.hinta() == 0
